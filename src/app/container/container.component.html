@@ -1,0 +1,43 @@
+<div class="ekart--product--container">
+  <!-- <img src="https://github.com/manojjha86/angular-16-complete-course/blob/main/2-angular-component-data-binding/src/assets/images/iphone.png?raw=true" alt="">
+
+  <p>Name: {{ product.name.toUpperCase() }}</p>
+  <p>Price: {{ "$" + product.price }}</p>
+  <p>Color: {{ product.color.toUpperCase() }}</p>
+  <p>Stock Numbers: {{ product.inStock }}</p>
+
+  <button (click) = "decrement()" >-</button>
+  <span> {{addToCart}} </span>
+  <button (click) = "increment()" >+</button> -->
+  <app-search (onInputTextChanged)="searchInput($event)"></app-search>
+  <!-- <div *ngFor = "let item of listOfString" >
+    <p>Current element of array is {{ item }}</p>
+  </div> -->
+  <app-product-list
+    [searchText]="searchText"
+    #ProductListComponent
+  ></app-product-list>
+
+  <app-product-detail
+    *ngIf="ProductListComponent.selectedProduct"
+    [productListComp]="ProductListComponent"
+  ></app-product-detail>
+
+  <div class="ekart-featured-products">
+    <div class="ekart-featured-product-heading">
+      <h1>Latest arrival in Popular Brands</h1>
+    </div>
+    <app-featured-products>
+      <h3 class="title">New Arrivals in<br>Nike</h3>
+      <button class="call-to-action">Learn More</button>
+    </app-featured-products>
+    <app-featured-products>
+      <h3 class="title">New Arrivals in Adidas</h3>
+      <button class="call-to-action">Learn More about Adidas</button>
+    </app-featured-products>
+    <app-featured-products>
+      <h3 class="title">New Arrivals in Reebok</h3>
+      <button class="call-to-action">Learn More about Reebok</button>
+    </app-featured-products>
+  </div>
+</div>
